@@ -1,13 +1,84 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  button.btn,
+  .link.btn {
+    border: none !important;
+    min-height: 50px !important;
+    padding: 0 !important;
+    padding: 1rem 2rem !important;
+    font-weight: bold !important;
+    color: white !important;
+    background-color: theme("colors.rose.300") !important;
+  }
+  .link {
+    @apply font-bold text-yellow-500 hover:scale-105 py-2 inline-block transition-all;
+  }
+  .link.btn {
+    @apply rounded-full mb-4;
+    height: unset;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .nav {
+    @apply flex flex-col gap-5;
+  }
+  .nav li {
+    @apply bg-rose-300 py-5 text-center rounded-l-full text-white font-bold ml-4;
+  }
+}
+
+.form .custom-selector .ant-select-selector {
+  background-color: #f4f4f4 !important;
+  border: unset !important;
+  display: block;
+  /* height: unset !important; */
+  min-height: 70px !important;
+  padding: 3rem;
+  line-height: 50px !important;
+  padding: 0 !important;
+  padding-left: 1rem !important;
+  /* @extend .remove-input-focus-effect; */
+}
+.ant-select {
+  min-height: 50px !important;
+}
+
+.form input:not([type="checkbox"]) {
+  height: 50px;
+}
+
+.form input,
+.form textarea {
+  background: #f4f4f4 !important;
+  border: none !important;
+}
+.ant-input-password {
+  padding: 0;
+  padding-right: 1rem;
+  border: none;
+}
+.ant-form-item-control-input {
+  border-radius: 0.5rem !important;
+  overflow: auto;
+}
+
+.ant-input-password input {
+  padding-left: 1rem !important;
+}
+
+.form .ant-form-item-control-input-content span {
+  background-color: #f4f4f4 !important;
 }
